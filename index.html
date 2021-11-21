@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Carlo Sudoku Solver</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+      <h1>Monte Carlo Sudoku Solver</h1>
+      <p>
+        Solve a sudoku puzzle using successive random numbers to guess a solution.
+        Page written for Chrome Web Browser, other browsers may have page layout issues.
+      </p>
+
+      <div class="input-div">
+        <h2>New Puzzle Entry</h2>
+        <table class="account-table" border="0" cellpadding="1px">
+          <tbody>
+            <tr>
+              <td><input id="inCell00" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell01" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell02" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell03" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell04" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell05" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell06" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell07" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell08" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell10" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell11" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell12" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell13" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell14" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell15" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell16" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell17" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell18" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell20" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell21" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell22" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell23" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell24" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell25" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell26" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell27" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell28" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell30" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell31" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell32" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell33" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell34" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell35" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell36" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell37" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell38" type="text" minlength="0" maxlength="1"size="1"></td>
+
+            </tr>
+            <tr>
+              <td><input id="inCell40" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell41" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell42" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell43" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell44" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell45" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell46" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell47" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell48" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell50" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell51" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell52" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell53" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell54" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell55" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell56" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell57" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell58" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell60" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell61" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell62" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell63" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell64" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell65" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell66" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell67" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell68" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell70" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell71" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell72" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell73" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell74" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell75" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell76" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell77" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell78" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+            <tr>
+              <td><input id="inCell80" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell81" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell82" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell83" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell84" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell85" type="text" minlength="0" maxlength="1"size="1"></td>
+
+              <td><input id="inCell86" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell87" type="text" minlength="0" maxlength="1"size="1"></td>
+              <td><input id="inCell88" type="text" minlength="0" maxlength="1"size="1"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="div-height-20"></div>
+
+      <div class="output-div">
+
+        <h2>Monte Carlo Output</h2>
+        <h4 id="emptyCount"></h2>
+
+        <table class="account-table" border="1" cellspacing="3px" cellpadding="5px">
+          <tbody>
+            <tr>
+              <td class="td" id="cell00"></td><td class="td" id="cell01"></td><td class="td" id="cell02"></td>
+              <td class="td" id="cell03"></td><td class="td" id="cell04"></td><td class="td" id="cell05"></td>
+              <td class="td" id="cell06"></td><td class="td" id="cell07"></td><td class="td" id="cell08"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell10"></td><td class="td" id="cell11"></td><td class="td" id="cell12"></td>
+              <td class="td" id="cell13"></td><td class="td" id="cell14"></td><td class="td" id="cell15"></td>
+              <td class="td" id="cell16"></td><td class="td" id="cell17"></td><td class="td" id="cell18"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell20"></td><td class="td" id="cell21"></td><td class="td" id="cell22"></td>
+              <td class="td" id="cell23"></td><td class="td" id="cell24"></td><td class="td" id="cell25"></td>
+              <td class="td" id="cell26"></td><td class="td" id="cell27"></td><td class="td" id="cell28"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell30"></td><td class="td" id="cell31"></td><td class="td" id="cell32"></td>
+              <td class="td" id="cell33"></td><td class="td" id="cell34"></td><td class="td" id="cell35"></td>
+              <td class="td" id="cell36"></td><td class="td" id="cell37"></td><td class="td" id="cell38"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell40"></td><td class="td" id="cell41"></td><td class="td" id="cell42"></td>
+              <td class="td" id="cell43"></td><td class="td" id="cell44"></td><td class="td" id="cell45"></td>
+              <td class="td" id="cell46"></td><td class="td" id="cell47"></td><td class="td" id="cell48"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell50"></td><td class="td" id="cell51"></td><td class="td" id="cell52"></td>
+              <td class="td" id="cell53"></td><td class="td" id="cell54"></td><td class="td" id="cell55"></td>
+              <td class="td" id="cell56"></td><td class="td" id="cell57"></td><td class="td" id="cell58"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell60"></td><td class="td" id="cell61"></td><td class="td" id="cell62"></td>
+              <td class="td" id="cell63"></td><td class="td" id="cell64"></td><td class="td" id="cell65"></td>
+              <td class="td" id="cell66"></td><td class="td" id="cell67"></td><td class="td" id="cell68"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell70"></td><td class="td" id="cell71"></td><td class="td" id="cell72"></td>
+              <td class="td" id="cell73"></td><td class="td" id="cell74"></td><td class="td" id="cell75"></td>
+              <td class="td" id="cell76"></td><td class="td" id="cell77"></td><td class="td" id="cell78"></td>
+            </tr>
+            <tr>
+              <td class="td" id="cell80"></td><td class="td" id="cell81"></td><td class="td" id="cell82"></td>
+              <td class="td" id="cell83"></td><td class="td" id="cell84"></td><td class="td" id="cell85"></td>
+              <td class="td" id="cell86"></td><td class="td" id="cell87"></td><td class="td" id="cell88"></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          To run press the [Start Continuous] button.
+          Chrome may give console warning about excessive CPU violations.
+        </p>
+        <div>
+          <button class="green" id="startContinuous">Start Continuous</button>
+          <button id="stopContinuous">Stop Continuous</button>
+        </div>
+      </div>
+
+      <div class="div-height-10"></div>
+      <div class="error-div" id=errorDiv hidden>
+        <h2>Error</h2>
+        <div id="errorContent"></div>
+      </div>
+      <div class="div-height-10"></div>
+
+
+      <div class="debug-div">
+        <h2>Debug Functions</h2>
+        <div>
+          <button id="resetButton">Reset</button>
+          <button id="guess1Button">Guess 1</button>
+          <button id="guess1000Button">Guess 1000</button>
+        </div>
+        <div class="div-height-20"></div>
+        <div>
+          <button id="reset10000Button">Reset + Guess 10000</button>
+        </div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+body {
+  padding: 20px;
+}
+
+.input-div {
+  background-color: #bbbbbb;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+input {
+  height: 1.9em;
+}
+
+.error-div {
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.output-div {
+  background-color: #f5d0c9;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.td {
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 0.7em;
+  height: 1.2em;
+}
+
+.debug-div {
+  background-color: #99ffff;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.div-height-10 {
+  height: 10px;
+}
+
+.div-height-20 {
+  height: 20px;
+}
+
+.green {
+  background-color: #20f72f;
+}
