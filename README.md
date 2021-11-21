@@ -2,9 +2,13 @@
 
 Solve a sudoku puzzle using successive random numbers to guess a solution.
 
+### Motivation
+
+This was a coding challenge suggested by a friend.
+
 ### How to run
 
-This is a stand alone browser web page. No web server is included.
+This is a stand alone web browser application. No web server is included.
 
 To run the program, clone the repository. Change to the  `html` folder. 
 Open index.html using either the local web browser or using a local web server.
