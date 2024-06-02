@@ -1,33 +1,33 @@
-"use strict";
+'use strict';
 
 let errorMessage = '';
 //
 // This is the starting puzzle containing input from user
 //
 let puzzle = [
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0]];
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 //
 // This is working copy, reset to puzzle array for each new iteration loop
 //
 let working = [
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0]];
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 //
 // Convert HTML <table> containing <input> elements to string array
@@ -39,27 +39,27 @@ const getInput = () => {
 
   // puzzle is global in app
   puzzle = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0]];
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
   const validChars = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
-      let str = document.getElementById('inCell' + row.toString() + col.toString()).value;
+      const str = document.getElementById('inCell' + row.toString() + col.toString()).value;
       if (str.length > 1) {
         error = 'Invalid input (string length > 1)';
       }
       if (str.length === 1) {
         if (validChars.indexOf(str) < 0) {
-          error = 'Invalid input (Alowed 1-9)'
+          error = 'Invalid input (Alowed 1-9)';
         }
       }
       if ((!error) && (str.length > 0)) {
@@ -71,15 +71,15 @@ const getInput = () => {
   if (error) {
     errorMessage = error;
     puzzle = [
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0]];
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0]];
   }
 };
 
@@ -89,7 +89,6 @@ const getInput = () => {
 const reset = () => {
   working = JSON.parse(JSON.stringify(puzzle));
 };
-
 
 //
 // This updates the HTML table on the web page
@@ -103,7 +102,6 @@ const update = () => {
     }
   }
 };
-
 
 const showError = () => {
   if ((errorMessage) && (errorMessage.length > 0)) {
@@ -230,15 +228,15 @@ const checkValidInput = () => {
 // Insert a new guess into the game
 //
 const insertGuess = () => {
-  let coord = generateCoord();
-  let randomRow = coord[0];
-  let randomCol = coord[1];
+  const coord = generateCoord();
+  const randomRow = coord[0];
+  const randomCol = coord[1];
   let done = false;
   let nextGuess;
   let guessSet = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   do {
     if (guessSet.length > 1) {
-      let index = Math.floor(Math.random() * guessSet.length);
+      const index = Math.floor(Math.random() * guessSet.length);
       // splice returns typeof === 'object' so used parseInt to make number
       nextGuess = parseInt(guessSet.splice(index, 1));
     } else {
@@ -263,12 +261,75 @@ const insertGuess = () => {
   // console.log('allowed ' + randomRow + ' ' + randomCol + ' ' + nextGuess);
   working[randomRow][randomCol] = nextGuess;
   return false;
-}
+};
+
+// THis function will dynamically create the <tr>, <td>, and <input>
+// elements, then insert the elements into the <table><tbody> element.
+// This styles are generated to provide 3x3 and 9x9 layout.
+const buildTableHtml = () => {
+  const inputTbodyEl = document.getElementById('sudokuInputTableBody');
+  for (let i = 0; i < 9; i++) {
+    const inputTrEl = document.createElement('tr');
+    for (let j = 0; j < 9; j++) {
+      const inputTdEl = document.createElement('td');
+      inputTdEl.classList.add('input-td');
+      if ((j === 2) || (j === 5)) {
+        inputTdEl.classList.add('input-td-vert-gap');
+      }
+      if ((i === 2) || (i === 5)) {
+        inputTdEl.classList.add('input-td-horiz-gap');
+      }
+      const inputInputEl = document.createElement('input');
+      inputInputEl.id = 'inCell' + i.toString() + j.toString();
+      inputInputEl.classList.add('input-input');
+      if (window.innerWidth < 550) {
+        inputInputEl.classList.add('input-input-mobile-width');
+      }
+      inputInputEl.setAttribute('type', 'text');
+      inputInputEl.setAttribute('min-length', '0');
+      inputInputEl.setAttribute('max-length', '1');
+      inputInputEl.setAttribute('size', '1');
+      inputTdEl.appendChild(inputInputEl);
+      inputTrEl.appendChild(inputTdEl);
+    }
+    inputTbodyEl.appendChild(inputTrEl);
+  }
+
+  const outputTbodyEl = document.getElementById('sudokuOutputTableBody');
+  for (let i = 0; i < 9; i++) {
+    const outputTrEl = document.createElement('tr');
+    for (let j = 0; j < 9; j++) {
+      const outputTdEl = document.createElement('td');
+      outputTdEl.id = 'cell' + i.toString() + j.toString();
+      outputTdEl.classList.add('output-td');
+      if ((j === 2) || (j === 5)) {
+        outputTdEl.classList.add('output-td-vert-gap');
+      }
+      if ((i === 2) || (i === 5)) {
+        outputTdEl.classList.add('output-td-horiz-gap');
+      }
+      outputTrEl.appendChild(outputTdEl);
+    }
+    outputTbodyEl.appendChild(outputTrEl);
+  }
+};
 
 // ------------------
 //   Event handlers
 // ------------------
-document.getElementById('resetButton').addEventListener('click', () => {
+// Button to show panel that is hidden by default on page load
+document.getElementById('enterInputBotton').addEventListener('click', () => {
+  document.getElementById('enterInputButtonDiv').setAttribute('hidden', '');
+  document.getElementById('enterInputTableDiv').removeAttribute('hidden');
+});
+
+// Button to show panel that is hidden by default on page load
+document.getElementById('showDebugPanelButton').addEventListener('click', () => {
+  document.getElementById('showDebugPanelButtonDiv').setAttribute('hidden', '');
+  document.getElementById('debugPanelDiv').removeAttribute('hidden');
+});
+
+const resetVariables = () => {
   running = false;
   clearError();
   getInput();
@@ -281,9 +342,17 @@ document.getElementById('resetButton').addEventListener('click', () => {
   update();
   updateEmpty();
   showError();
+};
+
+document.getElementById('resetButtonMainId').addEventListener('click', () => {
+  resetVariables();
 });
 
-document.getElementById('guess1Button').addEventListener('click', () => {
+document.getElementById('debugResetButtonId').addEventListener('click', () => {
+  resetVariables();
+});
+
+document.getElementById('debuguess1ButtonId').addEventListener('click', () => {
   running = false;
   if (!errorMessage) {
     insertGuess();
@@ -293,7 +362,7 @@ document.getElementById('guess1Button').addEventListener('click', () => {
   showError();
 });
 
-document.getElementById('guess1000Button').addEventListener('click', () => {
+document.getElementById('debugGuess1000ButtonId').addEventListener('click', () => {
   running = false;
   if (!errorMessage) {
     for (let i = 0; i < 1000; i++) insertGuess();
@@ -303,7 +372,7 @@ document.getElementById('guess1000Button').addEventListener('click', () => {
   showError();
 });
 
-document.getElementById('reset10000Button').addEventListener('click', () => {
+document.getElementById('debugReset10000ButtonId').addEventListener('click', () => {
   running = false;
   clearError();
   getInput();
@@ -350,7 +419,7 @@ document.getElementById('stopContinuous').addEventListener('click', () => {
 setInterval(() => {
   if ((running) && (!active)) {
     active = true;
-    let startTime = new Date().getTime();
+    // const startTime = new Date().getTime();
     reset();
     for (let i = 0; i < 10000; i++) insertGuess();
     update();
@@ -358,7 +427,7 @@ setInterval(() => {
     if (countEmpty() === 0) {
       running = false;
     }
-    let endTime = new Date().getTime();
+    // const endTime = new Date().getTime();
     // console.log('elapsed time: ' + (endTime - startTime));
     active = false;
   }
@@ -369,6 +438,7 @@ setInterval(() => {
 // --------------------
 
 clearError();
+buildTableHtml();
 getInput();
 if (!errorMessage) {
   reset();
