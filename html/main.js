@@ -286,8 +286,8 @@ const buildTableHtml = () => {
         inputInputEl.classList.add('input-input-mobile-width');
       }
       inputInputEl.setAttribute('type', 'text');
-      inputInputEl.setAttribute('min-length', '0');
-      inputInputEl.setAttribute('max-length', '1');
+      inputInputEl.setAttribute('minlength', '0');
+      inputInputEl.setAttribute('maxlength', '1');
       inputInputEl.setAttribute('size', '1');
       inputTdEl.appendChild(inputInputEl);
       inputTrEl.appendChild(inputTdEl);
